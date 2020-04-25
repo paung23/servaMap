@@ -1,0 +1,84 @@
+{% extends "dashboard/navigationbar.html" %}
+{% block body_content %}
+
+
+<style>
+      #map {
+        height: 550px;
+        width: 100%;
+       }
+</style>
+
+<body>
+<div class="card mt-3 mb-3">
+    <input type="hidden" id="hiddenCurrent" value="{{ current }}">
+    <h3 class="ml-2 mb-0">Dashboard<small class="float-right mt-1 mr-2"></small></h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        var map, infoWindow;
+        var userlat, userlng;
+
+        function initMap() {
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    userlat = position.coords.latitude;
+                    userlng = position.coords.longitude;
+                    var pos = {
+                        lat: userlat,
+                        lng: userlng
+                    };
+                    var userimg = 'http://maps.google.com/mapfiles/kml/paddle/red-stars.png';
+                    var userLocation = new google.maps.Marker({
+                        position: pos,
+                        icon: userimg
+                    });
+                    userLocation.setMap(map);
+                    userLocation.addListener('click', function(){
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent('Your current location');
+                        infoWindow.open(map);
+                        map.setZoom(10);
+                        map.setCenter(userLocation.getPosition());
+                    });
+                    map.setCenter(pos);
+                        // Save Location
+                        shareLocation();
+                    },
+                    function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            }
+            else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+
+            var libertyStatue = {lat: 40.689229, lng: -74.044522};
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 4, center: libertyStatue});
+            var marker = new google.maps.Marker({position: libertyStatue, map: map});
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+
+    </script>
+
+
+    <!-- ///Phyo: I commented it out because this is the code that is going to call the map and it is expensive so let's not use it if we don't need.
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4sTgn7NnorM15ZXwgJEZ9_p5ew_2VEwg&callback=initMap">
+    </script>
+    -->
+
+    </div>
+</div>
+
+</body>
+{% endblock %}
