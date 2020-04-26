@@ -3069,7 +3069,7 @@ input[type="button"].btn-block {
   padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
-  color: #212529;
+  color: #000000;
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
@@ -3085,7 +3085,7 @@ input[type="button"].btn-block {
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #f4623a;
+  background-color: #000000;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -3884,7 +3884,7 @@ input[type="button"].btn-block {
 }
 
 .nav-link.disabled {
-  color: #000000;
+  color: #6c757d;
   pointer-events: none;
   cursor: default;
 }
@@ -4222,7 +4222,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-light .navbar-brand {
-  color: rgba(8, 52, 128, 0.9);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
@@ -4230,7 +4230,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(8, 52, 128, 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
@@ -4238,7 +4238,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
-  color: rgba(8, 52, 128, 0.3);
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .navbar-light .navbar-nav .show > .nav-link,
@@ -4249,8 +4249,8 @@ input[type="button"].btn-block {
 }
 
 .navbar-light .navbar-toggler {
-  color: rgb(0, 0, 0);
-  border-color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 .navbar-light .navbar-toggler-icon {
@@ -4258,7 +4258,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-light .navbar-text {
-  color: rgba(8, 52, 128, 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .navbar-light .navbar-text a {
@@ -4270,35 +4270,35 @@ input[type="button"].btn-block {
 }
 
 .navbar-dark .navbar-brand {
-  color: #0c085c;
+  color: #fff;
 }
 
 .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
-  color: #0c085c;
+  color: #fff;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: rgb(12, 8, 92);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
-  color: rgba(12, 8, 92, 0.75);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .navbar-dark .navbar-nav .nav-link.disabled {
-  color: rgb(12, 8, 92);
+  color: rgba(255, 255, 255, 0.25);
 }
 
 .navbar-dark .navbar-nav .show > .nav-link,
 .navbar-dark .navbar-nav .active > .nav-link,
 .navbar-dark .navbar-nav .nav-link.show,
 .navbar-dark .navbar-nav .nav-link.active {
-  color: #000000;
+  color: #fff;
 }
 
 .navbar-dark .navbar-toggler {
-  color: rgb(0, 0, 0);
-  border-color: rgb(0, 0, 0);
+  color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar-dark .navbar-toggler-icon {
@@ -4306,15 +4306,15 @@ input[type="button"].btn-block {
 }
 
 .navbar-dark .navbar-text {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .navbar-dark .navbar-text a {
-  color: #0c085c;
+  color: #fff;
 }
 
 .navbar-dark .navbar-text a:hover, .navbar-dark .navbar-text a:focus {
-  color: #000000;
+  color: #fff;
 }
 
 .card {
@@ -6267,27 +6267,27 @@ button.bg-danger:focus {
 }
 
 .bg-light {
-  background-color: #0c085c !important;
+  background-color: #f8f9fa !important;
 }
 
 a.bg-light:hover, a.bg-light:focus,
 button.bg-light:hover,
 button.bg-light:focus {
-  background-color: #0c085c !important;
+  background-color: #dae0e5 !important;
 }
 
 .bg-dark {
-  background-color: #0c085c !important;
+  background-color: #343a40 !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
 button.bg-dark:hover,
 button.bg-dark:focus {
-  background-color: #0c085c !important;
+  background-color: #1d2124 !important;
 }
 
 .bg-white {
-  background-color: #0c085c !important;
+  background-color: #fff !important;
 }
 
 .bg-transparent {
@@ -9590,6 +9590,21 @@ hr.light {
   padding: 8rem 0;
 }
 
+#dashboard_navbar {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  background-color: #0c085c;
+}
+
+#dashboard_navbar .navbar-dark {
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  color: #083480;
+}
+
+#dashboard_navbar .navbar-nav .nav-item .nav-link.active {
+  color: #000080 !important;
+}
+
 #mainNav {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   background-color: #fff;
@@ -9599,7 +9614,7 @@ hr.light {
 #mainNav .navbar-brand {
   font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
-  color: #083480;
+  color: #212529;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {

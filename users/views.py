@@ -31,21 +31,21 @@ def register(request):
 
 def user_login(request):
     if request.method == "POST":
-        email = request.POST.get("email", None)
+        phone = request.POST.get("user_phone", None)
         password = request.POST.get("password", None)
 
-        if email and password:
-            login_user = CustomUser.objects.filter(email=email).first()
+        if phone and password:
+            login_user = CustomUser.objects.filter(user_phone=phone).first()
             if login_user is not None:
                 username = login_user.username
                 user = authenticate(username=username, password=password)
                 if user is not None:
                     login(request, user)
                     return HttpResponseRedirect("/")
-            messages.error(request, "Invalid email or password")
+            messages.error(request, "Invalid phone number or password!")
             return HttpResponseRedirect("login")
         else:
-            messages.error(request, "Please, write email and password")
+            messages.error(request, "Please enter your phone number and your password.")
             return HttpResponseRedirect("login")
 
     else:
