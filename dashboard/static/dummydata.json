@@ -1,0 +1,80 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.987270,
+                    40.731375
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "name": "Food",
+                "phone": "+44 20 1234 5678",
+                "storeid": "01"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.939070,
+                    40.685596
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "name": "Food",
+                "phone": "+44 117 121 2121",
+                "storeid": "02"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.955845,
+                    40.725838
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "name": "Mask",
+                "phone": "+44 1603 123456",
+                "storeid": "03"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.027314,
+                    40.749170
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "name": "Mask",
+                "phone": "+44 1202 343434",
+                "storeid": "04"
+            }
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.986409,
+                    40.765533
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+                "name": "Baby-sitting",
+                "phone": "+44 151 444 4444",
+                "storeid": "05"
+            }
+        }
+    ]
+}

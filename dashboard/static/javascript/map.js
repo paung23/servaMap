@@ -27,41 +27,6 @@ $.ajaxSetup({
     }
 });
 
-const follow = (self, account_id, adder_id) => {
-    const className = 'active';
-    $.ajax('/users/' + account_id + '/follow/' + adder_id, {
-        type: 'POST',
-        data: {},
-        success: () => {
-            if (!$(self).hasClass(className)) {
-                $(self).addClass(className);
-            } else {
-                $(self).removeClass(className);
-            }
-        },
-        error: (error) => {
-            console.log(error);
-            alert('error: ' + error);
-        }
-    });
-};
-
-$(function(){
-    $('div.initials').each(element => {
-        const dom = $($('div.initials')[element]);
-        if(!dom) return;
-        const account_id = dom.attr('account_id');
-        if(!account_id || account_id === '') return;
-        dom.addClass(getProfileColor(account_id));
-    });
-});
-
-$(document).ready(function() {
-    if(!!$('#hiddenCurrent').val() && $('#hiddenCurrent').val() == 'true') {
-        $('#isCurrent').prop('checked', true);
-    }
-})
-
 const shareLocation = () => {
     $.ajax({
             type:'POST',

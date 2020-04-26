@@ -1,7 +1,6 @@
 {% extends "dashboard/navigationbar.html" %}
 {% block body_content %}
 
-
 <style>
     #map {
         height: 600px;
@@ -15,6 +14,7 @@
 </style>
 
 <body>
+<div class="card">
     <!--The div element for the map -->
     <div id="map"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -58,10 +58,9 @@
                 handleLocationError(false, infoWindow, map.getCenter());
             }
 
-            var libertyStatue = {lat: 40.689229, lng: -74.044522};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: 40.674, lng: -73.945},
-                zoom: 12,
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 40.707928, lng: -74.008600},
+                zoom: 10,
                 styles: [
                     {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
                     {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -143,7 +142,32 @@
                     }
                 ]
             });
-            var marker = new google.maps.Marker({position: libertyStatue, map: map});
+
+            // Load the stores GeoJSON onto the map.
+            map.data.loadGeoJson('static/dummydata.json', {idPropertyName: 'storeid'});
+
+            map.data.setStyle((feature) => {
+                return {
+                    icon: {
+                        url: `static/img/${feature.getProperty('name')}.png`,
+                        scaledSize: new google.maps.Size(64, 64),
+                    },
+                };
+            });
+
+            var newInfoWindow = new google.maps.InfoWindow();
+
+            map.data.addListener('click', (event) => {
+                var name = event.feature.getProperty('name');
+                var phone = event.feature.getProperty('phone');
+                var position = event.feature.getGeometry().get();
+                var content = `<h2>${name}</h2><p><b>Phone:</b> ${phone}</p>`;
+
+                newInfoWindow.setContent(content);
+                newInfoWindow.setPosition(position);
+                newInfoWindow.setOptions({pixelOffset: new google.maps.Size(0, -30)});
+                newInfoWindow.open(map);
+            });
         }
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -155,11 +179,10 @@
     </script>
 
 
-    <!-- ///Phyo: I commented it out because this is the code that is going to call the map and it is expensive so let's not use it if we don't need.
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4sTgn7NnorM15ZXwgJEZ9_p5ew_2VEwg&callback=initMap">
     </script>
-    -->
+</div>
 
 </body>
 {% endblock %}
