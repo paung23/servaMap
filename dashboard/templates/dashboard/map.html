@@ -9,7 +9,7 @@
 
 <style>
     #map {
-        height: 600px;
+        height: 665px;
         width: 100%;
     }
     html, body {
@@ -167,7 +167,7 @@
                 var name = event.feature.getProperty('name');
                 var phone = event.feature.getProperty('phone');
                 var position = event.feature.getGeometry().get();
-                var content = `<h2>${name}</h2><p><b>Phone:</b> ${phone}</p>`;
+                var content = `<h2>${name}</h2><p><a class="btn btn-primary" href="#">Accept</a></p>`;
 
                 newInfoWindow.setContent(content);
                 newInfoWindow.setPosition(position);
